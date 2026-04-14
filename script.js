@@ -122,43 +122,67 @@ revealCards.forEach((card, i) => {
   cardObserver.observe(card);
 });
 
-// ── Contact Form ────────────────────────────────────────────────────────────────
+// ── Contact Form (Formspree) ────────────────────────────────────────────────────
+// ⚠️  Replace YOUR_FORM_ID below with the ID from your Formspree dashboard
+//     e.g. if your endpoint is https://formspree.io/f/xpwzabcd → use "xpwzabcd"
+const FORMSPREE_ID = 'mbdqjvvv';
+
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
-const submitBtn = document.getElementById('submitBtn');
+const formError   = document.getElementById('formError');
+const submitBtn   = document.getElementById('submitBtn');
 
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
+    // Hide any previous status
+    formSuccess.classList.remove('show');
+    formError.classList.remove('show');
+
+    const name    = document.getElementById('name').value.trim();
+    const email   = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
 
-    if (!name || !email || !message) {
-      shakeForm();
-      return;
-    }
+    // Client-side validation
+    if (!name || !email || !message) { shakeForm(); return; }
     if (!isValidEmail(email)) {
-      document.getElementById('email').focus();
-      document.getElementById('email').style.borderColor = '#ef4444';
-      setTimeout(() => {
-        document.getElementById('email').style.borderColor = '';
-      }, 2000);
+      const emailInput = document.getElementById('email');
+      emailInput.style.borderColor = '#ef4444';
+      emailInput.focus();
+      setTimeout(() => { emailInput.style.borderColor = ''; }, 2000);
       return;
     }
 
-    // Simulate send
+    // Sync hidden _replyto so Formspree lets you reply directly to sender
+    document.getElementById('replyto').value = email;
+
+    // Send to Formspree
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
 
-    setTimeout(() => {
-      contactForm.reset();
+    try {
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(contactForm)
+      });
+
+      if (response.ok) {
+        contactForm.reset();
+        formSuccess.classList.add('show');
+        setTimeout(() => formSuccess.classList.remove('show'), 6000);
+      } else {
+        formError.classList.add('show');
+        setTimeout(() => formError.classList.remove('show'), 6000);
+      }
+    } catch (_) {
+      formError.classList.add('show');
+      setTimeout(() => formError.classList.remove('show'), 6000);
+    } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
-      formSuccess.classList.add('show');
-      setTimeout(() => formSuccess.classList.remove('show'), 5000);
-    }, 1400);
+    }
   });
 }
 
