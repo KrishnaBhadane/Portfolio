@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of an aspiring Software Engineer and Full Stack Developer. Passionate about building scalable systems through consistent learning." />
+  <title>Portfolio | Krishna Bhadane</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>Krishna<span class="logo-bracket">&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#journey" class="nav-link">Journey</a></li>
+        <li><a href="#creative" class="nav-link">Creative</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="home">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-tag fade-up">👋 Welcome to my portfolio</div>
+      <h1 class="hero-name fade-up">Hi, I'm <span class="gradient-text">Krishna Bhadane</span></h1>
+      <h2 class="hero-title fade-up">Software Engineer <span class="divider">|</span> Full Stack Developer</h2>
+      <p class="hero-tagline fade-up">Building my journey from basics to scalable systems</p>
+      <div class="hero-cta fade-up">
+        <a href="#projects" class="btn btn-primary">View Projects <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+      </div>
+      <div class="hero-badges fade-up">
+        <span class="badge-learning"><i class="fa-solid fa-circle-dot pulse"></i> Currently Learning: React &amp; SQL</span>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll down</span>
+      <i class="fa-solid fa-chevron-down bounce"></i>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">About Me</span>
+        <h2 class="section-title">Who Am I?</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-avatar">
+          <div class="avatar-box">
+            <div class="avatar-icon"><i class="fa-solid fa-code"></i></div>
+            <div class="avatar-ring"></div>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <span class="stat-num">3+</span>
+              <span class="stat-label">Languages</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">∞</span>
+              <span class="stat-label">Curiosity</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">100%</span>
+              <span class="stat-label">Discipline</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-text">
+          <p>I'm a passionate and self-driven beginner developer on a mission to become a full-stack engineer. My journey started with <strong>HTML &amp; CSS</strong>, and I've since expanded into <strong>JavaScript</strong> and <strong>Java</strong> for data structures and algorithms.</p>
+          <p>What defines me is my <strong>learning mindset</strong> — I approach every challenge as an opportunity to grow. I believe in consistency over intensity, showing up every day and making small, compounding improvements.</p>
+          <p>Currently, I'm exploring <strong>React</strong> for modern frontend development and <strong>SQL</strong> for databases, building toward my goal of becoming a well-rounded full stack developer.</p>
+          <div class="about-skills-preview">
+            <div class="skill-pill"><i class="fa-brands fa-html5"></i> HTML</div>
+            <div class="skill-pill"><i class="fa-brands fa-css3-alt"></i> CSS</div>
+            <div class="skill-pill"><i class="fa-brands fa-js"></i> JavaScript</div>
+            <div class="skill-pill"><i class="fa-brands fa-java"></i> Java</div>
+            <div class="skill-pill learning-pill"><i class="fa-solid fa-spinner"></i> React <span class="pill-tag">Learning</span></div>
+            <div class="skill-pill learning-pill"><i class="fa-solid fa-database"></i> SQL <span class="pill-tag">Learning</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
+  <section class="section skills-section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Skills</span>
+        <h2 class="section-title">My Tech Stack</h2>
+        <p class="section-sub">Technologies I work with and technologies I'm actively learning</p>
+      </div>
+      <div class="skills-grid">
+
+        <!-- Frontend -->
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon frontend-icon"><i class="fa-solid fa-palette"></i></div>
+            <h3>Frontend</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <i class="fa-brands fa-html5 html-color"></i>
+              <span>HTML5</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill: 80%"></div></div>
+            </div>
+            <div class="skill-item">
+              <i class="fa-brands fa-css3-alt css-color"></i>
+              <span>CSS3</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill: 75%"></div></div>
+            </div>
+            <div class="skill-item">
+              <i class="fa-brands fa-js js-color"></i>
+              <span>JavaScript</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill: 55%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Programming -->
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon prog-icon"><i class="fa-solid fa-terminal"></i></div>
+            <h3>Programming</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <i class="fa-brands fa-java java-color"></i>
+              <span>Java (DSA &amp; OOP)</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill: 60%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon tools-icon"><i class="fa-solid fa-wrench"></i></div>
+            <h3>Tools</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <i class="fa-brands fa-git-alt git-color"></i>
+              <span>Git</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill: 65%"></div></div>
+            </div>
+            <div class="skill-item">
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill: 60%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Currently Learning -->
+        <div class="skill-category-card learning-card">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon learn-icon"><i class="fa-solid fa-book-open"></i></div>
+            <h3>Currently Learning <span class="cat-badge">Active</span></h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <i class="fa-brands fa-react react-color"></i>
+              <span>React</span>
+              <div class="skill-bar"><div class="skill-fill learning-fill" style="--fill: 20%"></div></div>
+            </div>
+            <div class="skill-item">
+              <i class="fa-solid fa-database sql-color"></i>
+              <span>SQL</span>
+              <div class="skill-bar"><div class="skill-fill learning-fill" style="--fill: 20%"></div></div>
+            </div>
+            <div class="skill-item">
+              <i class="fa-brands fa-node-js node-color"></i>
+              <span>Node.js <span style="font-size:0.7rem;opacity:0.6">(Upcoming)</span></span>
+              <div class="skill-bar"><div class="skill-fill learning-fill" style="--fill: 5%"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <section class="section projects-section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Projects</span>
+        <h2 class="section-title">My Work</h2>
+        <p class="section-sub">A growing collection of projects as I learn and build</p>
+      </div>
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card" id="proj-1">
+          <div class="project-card-top">
+            <div class="project-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+          <h3 class="project-title">Portfolio Website</h3>
+          <p class="project-desc">A responsive personal portfolio built from scratch to showcase my skills, projects, and learning journey. Designed with clean UI principles and smooth animations.</p>
+          <div class="project-links">
+            <a href="#" class="btn-project" aria-label="GitHub"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="#" class="btn-project btn-project-live" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" id="proj-2">
+          <div class="project-card-top">
+            <div class="project-icon"><i class="fa-brands fa-java"></i></div>
+            <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">DSA</span>
+              <span class="tag">OOP</span>
+            </div>
+          </div>
+          <h3 class="project-title">Java DSA Project</h3>
+          <p class="project-desc">A collection of core data structures and algorithms implemented in Java — including arrays, linked lists, sorting, searching, and more. Built to strengthen problem-solving skills.</p>
+          <div class="project-links">
+            <a href="#" class="btn-project" aria-label="GitHub"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="#" class="btn-project btn-project-live" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+          </div>
+        </div>
+
+        <!-- Project 3 (Coming Soon) -->
+        <div class="project-card coming-soon-card" id="proj-3">
+          <div class="coming-soon-badge">Coming Soon</div>
+          <div class="project-card-top">
+            <div class="project-icon react-project-icon"><i class="fa-brands fa-react fa-spin-slow"></i></div>
+          </div>
+          <h3 class="project-title">React App</h3>
+          <p class="project-desc">A full-featured React application currently in planning. Will incorporate React hooks, component architecture, and SQL-based data management. Stay tuned!</p>
+          <div class="project-links">
+            <a href="#" class="btn-project disabled" aria-disabled="true"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="#" class="btn-project btn-project-live disabled" aria-disabled="true"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== JOURNEY ========== -->
+  <section class="section journey-section" id="journey">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Journey</span>
+        <h2 class="section-title">My Growth Timeline</h2>
+        <p class="section-sub">Every expert was once a beginner — here's where mine began</p>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item" data-index="0">
+          <div class="timeline-dot done"><i class="fa-solid fa-check"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Foundation</span>
+            <h3>HTML &amp; CSS</h3>
+            <p>Started with the building blocks of the web. Learned semantic HTML, CSS layouts, flexbox, grid, and responsive design fundamentals.</p>
+            <div class="timeline-tags">
+              <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Flexbox</span><span class="tag">Grid</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-index="1">
+          <div class="timeline-dot done"><i class="fa-solid fa-check"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Interactivity</span>
+            <h3>JavaScript Basics</h3>
+            <p>Added logic to the web with JavaScript. Covered DOM manipulation, events, functions, and basic algorithms to bring pages to life.</p>
+            <div class="timeline-tags">
+              <span class="tag">JavaScript</span><span class="tag">DOM</span><span class="tag">ES6+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-index="2">
+          <div class="timeline-dot done"><i class="fa-solid fa-check"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Problem Solving</span>
+            <h3>Java for DSA</h3>
+            <p>Stepped into the world of algorithms and data structures using Java. Practicing OOP concepts, arrays, stacks, queues, and recursion.</p>
+            <div class="timeline-tags">
+              <span class="tag">Java</span><span class="tag">DSA</span><span class="tag">OOP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item active" data-index="3">
+          <div class="timeline-dot active-dot"><i class="fa-solid fa-spinner fa-spin"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date current-badge">Now ✦ Active</span>
+            <h3>React &amp; SQL</h3>
+            <p>Currently diving into React for component-based UI development and SQL for database management — moving toward full-stack capabilities.</p>
+            <div class="timeline-tags">
+              <span class="tag learning-tag">React</span><span class="tag learning-tag">SQL</span><span class="tag learning-tag">Node.js (Next)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CREATIVE EDGE ========== -->
+  <section class="section creative-section" id="creative">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Creative Edge</span>
+        <h2 class="section-title">Where Code Meets Creativity</h2>
+        <p class="section-sub">My content editing skills give me a unique perspective at the intersection of tech and storytelling</p>
+      </div>
+      <div class="creative-grid">
+
+        <div class="creative-card" id="cc-1">
+          <div class="creative-icon"><i class="fa-solid fa-film"></i></div>
+          <h3>Video Editing</h3>
+          <p>Experienced with editing videos — understanding pacing, visual storytelling, and audience engagement. This translates directly to building intuitive UX.</p>
+        </div>
+
+        <div class="creative-card" id="cc-2">
+          <div class="creative-icon"><i class="fa-solid fa-eye"></i></div>
+          <h3>Visual Thinking</h3>
+          <p>A strong sense of aesthetics and layout developed through content creation makes my UI decisions more deliberate and user-centered.</p>
+        </div>
+
+        <div class="creative-card" id="cc-3">
+          <div class="creative-icon"><i class="fa-solid fa-pen-nib"></i></div>
+          <h3>Storytelling with Data</h3>
+          <p>Ability to communicate complex ideas simply — whether it's through a clean UI, a well-structured README, or an effective project demo.</p>
+        </div>
+
+        <div class="creative-highlight">
+          <div class="creative-highlight-inner">
+            <i class="fa-solid fa-lightbulb"></i>
+            <h3>Tech + Creativity = Edge</h3>
+            <p>In a world of developers, a creative eye sets you apart. I bring both logical problem-solving and an aesthetic sensibility to every project I build.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Contact</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-sub">Whether it's an internship opportunity, collaboration, or just a hello — I'd love to hear from you</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <h4>Email</h4>
+              <p>krishnabhadane0@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <h4>Location</h4>
+              <p>Shirpur, India</p>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="#" class="social-link" id="github-link" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub</span>
+            </a>
+            <a href="#" class="social-link" id="linkedin-link" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+          <div class="open-to-work">
+            <span class="open-dot"></span>
+            Open to internship opportunities
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Tell me about the opportunity or say hi..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit" id="submitBtn">
+            Send Message <i class="fa-solid fa-paper-plane"></i>
+          </button>
+          <div class="form-success" id="formSuccess">
+            <i class="fa-solid fa-circle-check"></i> Message sent! I'll get back to you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="#home" class="footer-logo">
+        <span class="logo-bracket">&lt;</span>Krishna Bhadane<span class="logo-bracket">&gt;</span>
+      </a>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Krishna Bhadane. Crafted with <i class="fa-solid fa-heart heart"></i>.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
