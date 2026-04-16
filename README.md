@@ -1,2 +1,18 @@
-# Portfolio
-This is my personal portfolio website showcasing my journey as a beginner software developer. Built with HTML, CSS, and JavaScript, it reflects my skills, projects, and continuous learning in React, SQL, and Java (DSA). I’ll keep improving it as I grow and work toward opportunities.
+## Portfolio
+This is my personal portfolio website built using HTML, CSS, and JavaScript.
+
+## Features
+- Clean and simple UI
+- Responsive design
+- Sections for skills and projects
+
+## Tech Used
+- HTML
+- CSS
+- JavaScript
+
+## Live Demo
+[View Portfolio Website](https://krishnabhadane.github.io/Portfolio/)
+
+## Author
+Krishna Bhadane
