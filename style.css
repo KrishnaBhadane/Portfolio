@@ -1,0 +1,813 @@
+/* ==========================================================================
+   KRUSHNA BHADANE - PORTFOLIO DESIGN SYSTEM
+   100% Visual Fidelity Match with Reference Design
+   ========================================================================== */
+
+/* --- CSS Variables & Design Tokens --- */
+:root {
+  --bg-stone: #dedcd6;
+  --text-main: #121314;
+  --text-muted: #706f6a;
+  --text-role: #6c766e;
+  --text-body: #333633;
+  --accent-line: #a6a59e;
+  --status-dot: #64a37f;
+
+  --code-bg: #161819;
+  --code-ln: #525d66;
+  --code-text: #e2e8f0;
+  --code-str: #ffffff;
+
+  --sage-base: #7e9482;
+  --sage-dark: #687e6c;
+  --sage-light: #94aa98;
+
+  --font-title: 'Oswald', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Reset & Global Styling --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-stone);
+  font-family: var(--font-sans);
+  color: var(--text-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Topographic Contour Background SVG --- */
+.contour-bg-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.contour-lines-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Site Layout Container --- */
+.site-container {
+  position: relative;
+  z-index: 5;
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2.2rem 4rem 2.2rem 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   HEADER / NAVBAR
+   ========================================================================== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.brand-logo {
+  font-family: var(--font-title);
+  font-size: 2.7rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-decoration: none;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  transform: scaleY(1.05);
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.brand-logo:hover {
+  transform: scaleY(1.05) scale(1.08);
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 2.8rem;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #2b2d2c;
+  text-decoration: none;
+  position: relative;
+  padding: 0.35rem 0;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #000000;
+}
+
+.nav-item.active .nav-link {
+  color: #000000;
+  font-weight: 600;
+}
+
+.nav-item.active .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--text-main);
+  border-radius: 2px;
+}
+
+.btn-connect {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: #111416;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.68rem 1.4rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  transition: all 0.3s var(--ease-spring);
+}
+
+.btn-connect:hover {
+  background-color: #202427;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.24);
+}
+
+.online-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--status-dot);
+  box-shadow: 0 0 8px var(--status-dot);
+  animation: pulse-dot 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 12px var(--status-dot); }
+}
+
+/* ==========================================================================
+   MAIN CONTENT / HERO
+   ========================================================================== */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+  padding: 1.5rem 0 1rem 0;
+}
+
+/* Left Column: Typography & Bio */
+.left-pane {
+  display: flex;
+  flex-direction: column;
+  max-width: 540px;
+}
+
+.intro-tag {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.tag-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--text-muted);
+}
+
+.tag-line {
+  display: inline-block;
+  width: 48px;
+  height: 1.2px;
+  background-color: var(--accent-line);
+}
+
+.main-name {
+  display: flex;
+  flex-direction: column;
+  margin: 0.1rem 0 0.9rem 0;
+}
+
+.name-first, .name-last {
+  font-family: var(--font-title);
+  font-size: clamp(4.6rem, 6.5vw, 6.2rem);
+  font-weight: 700;
+  line-height: 0.91;
+  letter-spacing: -0.015em;
+  color: var(--text-main);
+  text-transform: uppercase;
+  transform: scaleY(1.04);
+  transform-origin: top left;
+}
+
+.profession-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.profession-title {
+  font-size: 0.90rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--text-role);
+}
+
+.profession-line-art {
+  display: flex;
+  align-items: center;
+}
+
+.prof-line {
+  display: inline-block;
+  width: 62px;
+  height: 1.5px;
+  background-color: var(--accent-line);
+}
+
+.prof-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-line);
+  margin-left: -1px;
+}
+
+.bio-text {
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.62;
+  color: var(--text-body);
+  max-width: 425px;
+  margin-bottom: 2.2rem;
+}
+
+.cta-buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 3.2rem;
+}
+
+.btn-primary-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #111314;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.94rem;
+  font-weight: 600;
+  padding: 0.85rem 1.65rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  transition: all 0.3s var(--ease-spring);
+}
+
+.btn-primary-action:hover {
+  background-color: #222629;
+  transform: translateY(-2.5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
+.btn-secondary-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: rgba(220, 218, 212, 0.45);
+  border: 1.3px solid #8e8d86;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.94rem;
+  font-weight: 600;
+  padding: 0.82rem 1.65rem;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s var(--ease-spring);
+}
+
+.btn-secondary-action:hover {
+  background-color: rgba(220, 218, 212, 0.85);
+  border-color: #55544f;
+  transform: translateY(-2.5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.icon-arrow {
+  transition: transform 0.25s ease;
+}
+
+.btn-secondary-action:hover .icon-arrow {
+  transform: translateX(4px);
+}
+
+.social-bar {
+  display: flex;
+  align-items: center;
+}
+
+.social-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.social-icon-link:hover {
+  transform: translateY(-2px) scale(1.1);
+  color: #000;
+}
+
+.social-sep {
+  display: inline-block;
+  width: 1.2px;
+  height: 20px;
+  background-color: var(--accent-line);
+  margin: 0 1.2rem;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: 3D AESTHETIC COMPOSITION & CODE WINDOW
+   ========================================================================== */
+.right-pane {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 540px;
+}
+
+.composition-container {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  height: 510px;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+/* 1. Top Right Dotted Matrix Card */
+.prop-dotted-panel {
+  position: absolute;
+  top: 15px;
+  right: 65px;
+  width: 190px;
+  height: 135px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  z-index: 2;
+  transform: translateZ(10px);
+}
+
+.dots-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px 18px;
+}
+
+.dots-grid span {
+  width: 3.5px;
+  height: 3.5px;
+  background-color: #383a37;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+/* 2. Sage Green Circular Disc (Far Right) */
+.prop-circle-disk {
+  position: absolute;
+  top: 90px;
+  right: -5px;
+  width: 138px;
+  height: 138px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #8ba18e 0%, #6e8471 100%);
+  box-shadow: -15px 20px 35px rgba(0, 0, 0, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.25);
+  z-index: 1;
+  transform: translateZ(5px);
+}
+
+/* 3. Glossy Metallic Dark Sphere */
+.prop-dark-sphere {
+  position: absolute;
+  top: 48px;
+  right: 215px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #525455 18%, #1f2022 55%, #0d0e0f 100%);
+  box-shadow: 0 18px 28px rgba(0, 0, 0, 0.4), inset 0 -4px 6px rgba(0, 0, 0, 0.8);
+  z-index: 4;
+  transform: translateZ(30px);
+}
+
+/* 4. Translucent Frosted Glass Back Plate (Top Left) */
+.prop-back-glass {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  width: 155px;
+  height: 148px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+  border-radius: 18px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
+  z-index: 2;
+  transform: translateZ(15px);
+}
+
+/* 5. Sage Green Frosted Pill Slider Plate (Mid Left) */
+.prop-slider-plate {
+  position: absolute;
+  bottom: 85px;
+  left: 32px;
+  width: 125px;
+  height: 165px;
+  background: linear-gradient(145deg, rgba(138, 155, 140, 0.35) 0%, rgba(115, 133, 118, 0.25) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+  transform: translateZ(20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 28px;
+}
+
+.notch-slider {
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 18px;
+  background-color: #2b2e30;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.slider-wireframe {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.slider-wireframe span {
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.55);
+  border-radius: 2px;
+}
+
+.slider-wireframe span:nth-child(1) { width: 38px; }
+.slider-wireframe span:nth-child(2) { width: 28px; }
+.slider-wireframe span:nth-child(3) { width: 34px; }
+
+/* 6. Concrete / Terrazzo Pillar Block (Bottom Right) */
+.prop-concrete-pillar {
+  position: absolute;
+  bottom: 30px;
+  right: 80px;
+  width: 105px;
+  height: 135px;
+  background-color: #cfccc4;
+  background-image: radial-gradient(#9e9b93 12%, transparent 12%), radial-gradient(#6c6a64 10%, transparent 10%);
+  background-size: 8px 8px, 12px 12px;
+  background-position: 0 0, 4px 4px;
+  border-radius: 8px;
+  box-shadow: -15px 20px 35px rgba(0, 0, 0, 0.18), inset 0 2px 3px rgba(255, 255, 255, 0.4);
+  z-index: 2;
+  transform: translateZ(10px);
+}
+
+/* 7. Sage Green Round Pedestal Cylinder (Bottom Left) */
+.prop-sage-pedestal {
+  position: absolute;
+  bottom: 12px;
+  left: 20px;
+  width: 190px;
+  height: 65px;
+  z-index: 2;
+  transform: translateZ(15px);
+}
+
+.pedestal-disc-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(135deg, #99ad9b 0%, #879c8a 100%);
+  border-radius: 50%;
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.35);
+  z-index: 2;
+}
+
+.pedestal-disc-side {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  width: 100%;
+  height: 42px;
+  background: linear-gradient(180deg, #7c9180 0%, #687c6b 100%);
+  border-radius: 0 0 95px 95px / 0 0 24px 24px;
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.22);
+  z-index: 1;
+}
+
+/* 8. Sage Green Cube with {...} */
+.prop-cube-braces {
+  position: absolute;
+  bottom: 45px;
+  right: 175px;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(145deg, #8aa08e 0%, #6a7e6d 100%);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -10px 18px 30px rgba(0, 0, 0, 0.22), inset 0 2px 3px rgba(255, 255, 255, 0.4);
+  z-index: 4;
+  transform: translateZ(35px);
+}
+
+.prop-cube-braces span {
+  font-family: var(--font-mono);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.05em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 9. Foreground Frosted Glass Plate (Front Right) */
+.prop-front-glass {
+  position: absolute;
+  bottom: 50px;
+  right: 90px;
+  width: 78px;
+  height: 110px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.12) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.8px solid rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), inset 0 1px 3px rgba(255, 255, 255, 0.9);
+  z-index: 10;
+  transform: translateZ(65px);
+}
+
+/* ==========================================================================
+   CENTERPIECE: DARK CODE EDITOR WINDOW
+   ========================================================================== */
+.code-window {
+  position: absolute;
+  top: 75px;
+  left: 55px;
+  width: 480px;
+  background: linear-gradient(165deg, #1b1e20 0%, #121415 100%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  box-shadow: 
+    0 35px 70px -10px rgba(0, 0, 0, 0.45),
+    0 15px 30px -5px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  z-index: 6;
+  transform: translateZ(45px);
+  transition: transform 0.4s var(--ease-smooth), box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+.code-window:hover {
+  transform: translateZ(60px) translateY(-4px);
+  box-shadow: 
+    0 45px 85px -10px rgba(0, 0, 0, 0.55),
+    0 20px 35px -5px rgba(0, 0, 0, 0.35);
+}
+
+.window-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.4rem 0.6rem 1.4rem;
+}
+
+.window-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.w-dot {
+  width: 7.5px;
+  height: 7.5px;
+  border-radius: 50%;
+  background-color: #555c63;
+}
+
+.window-code-symbol {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #cfd8e3;
+  letter-spacing: -0.05em;
+  opacity: 0.9;
+}
+
+.window-code-content {
+  padding: 0.8rem 1.4rem 1.6rem 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.72;
+}
+
+.code-line {
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.line-index {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--code-ln);
+  width: 32px;
+  user-select: none;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.code-text {
+  color: #cfd8e3;
+  white-space: nowrap;
+}
+
+.pad-1 {
+  padding-left: 1.25rem;
+}
+
+.pad-2 {
+  padding-left: 2.5rem;
+}
+
+.c-kw {
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.c-id {
+  color: #f1f5f9;
+}
+
+.c-prop {
+  color: #cfd8e3;
+}
+
+.c-str {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN & MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1280px) {
+  .site-container {
+    padding: 2rem 3rem;
+  }
+
+  .code-window {
+    width: 460px;
+    left: 40px;
+  }
+
+  .window-code-content {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .site-container {
+    padding: 2rem 2.5rem;
+  }
+  
+  .main-name .name-first,
+  .main-name .name-last {
+    font-size: clamp(3.8rem, 6vw, 5.2rem);
+  }
+  
+  .code-window {
+    width: 440px;
+    left: 30px;
+  }
+
+  .window-code-content {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .left-pane {
+    max-width: 100%;
+  }
+
+  .right-pane {
+    justify-content: center;
+    min-height: 480px;
+  }
+
+  .composition-container {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-container {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .main-name .name-first,
+  .main-name .name-last {
+    font-size: 3.6rem;
+  }
+
+  .cta-buttons-group {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .code-window {
+    width: calc(100% - 40px);
+    left: 20px;
+  }
+}
