@@ -45,9 +45,9 @@ A sleek, minimalist, and editorial developer portfolio built with semantic **HTM
 
 ## 📬 Connect with Krushna
 
-- **LinkedIn**: [linkedin.com/in/krushnabhadane](https://linkedin.com)
-- **GitHub**: [github.com/KrishnaBhadane](https://github.com)
-- **Email**: [krushnabhadane0@gmail.com](mailto:krushnabhadane0@gmail.com)
+- **LinkedIn**: [linkedin.com/in/krishna-bhadane](https://www.linkedin.com/in/krishna-bhadane-015963386/)
+- **GitHub**: [github.com/KrishnaBhadane](https://github.com/KrishnaBhadane)
+- **Email**: [krishnabhadane0@gmail.com](mailto:krishnabhadane0@gmail.com)
 
 ---
 
