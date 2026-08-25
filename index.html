@@ -3,16 +3,23 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Krushna Bhadane | Full Stack Developer</title>
   <meta name="description"
     content="Portfolio of Krushna Bhadane - Full Stack Developer building clean, efficient and user-focused web applications.">
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Krushna Bhadane | Full Stack Developer">
+  <meta property="og:description"
+    content="Full Stack Developer building clean, efficient and user-focused web applications.">
+  <meta name="theme-color" content="#dedcd6">
 
   <!-- Google Fonts: Oswald (Display Title), Plus Jakarta Sans (Body & Nav), JetBrains Mono (Code) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Oswald:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
@@ -46,31 +53,108 @@
 
   <div class="site-container">
     <!-- Navbar Header -->
-    <header class="header">
+    <header class="header" id="siteHeader">
       <div class="brand">
-        <a href="#home" class="brand-logo" aria-label="Krushna Bhadane Logo">K</a>
+        <a href="#home" class="brand-logo" aria-label="Krushna Bhadane Logo" id="brandLogo" data-modal="home">
+          <span class="logo-text">K</span>
+          <span class="logo-sub">STUDIO</span>
+        </a>
       </div>
 
-      <nav class="nav">
+      <!-- Desktop Navigation -->
+      <nav class="nav" aria-label="Main Navigation">
         <ul class="nav-list">
-          <li class="nav-item active"><a href="#home" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+          <li class="nav-item active"><a href="#home" class="nav-link" data-modal="home">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link" data-modal="about">About</a></li>
+          <li class="nav-item"><a href="#education" class="nav-link" data-modal="education">Education</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link" data-modal="skills">Skills</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link" data-modal="projects">Projects</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link" data-modal="contact">Contact</a></li>
         </ul>
       </nav>
 
+      <!-- Header Actions (Connect Button & Mobile Hamburger) -->
       <div class="header-action">
-        <a href="mailto:krishnabhadane0@gmail.com" class="btn-connect" id="btn-connect">
-          <span>Let's Connect</span>
-          <span class="online-indicator"></span>
+        <a href="#contact" class="btn-connect" id="btn-connect" data-modal="contact">
+          <span class="btn-connect-text">Let's Connect</span>
+          <span class="online-indicator" title="Available for new opportunities"></span>
         </a>
+
+        <!-- Mobile Hamburger Toggle Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false"
+          aria-controls="mobileDrawer">
+          <span class="hamburger-bar bar-1"></span>
+          <span class="hamburger-bar bar-2"></span>
+          <span class="hamburger-bar bar-3"></span>
+        </button>
       </div>
     </header>
 
+    <!-- Mobile Drawer Overlay & Menu -->
+    <div class="mobile-drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+    <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <div class="drawer-header">
+        <div class="drawer-status-pill">
+          <span class="online-indicator"></span>
+          <span>Available for work</span>
+        </div>
+        <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="drawer-nav">
+        <ul class="drawer-list">
+          <li class="drawer-item"><a href="#home" class="drawer-link active" data-modal="home"><span
+                class="drawer-num">01</span><span>Home</span></a></li>
+          <li class="drawer-item"><a href="#about" class="drawer-link" data-modal="about"><span
+                class="drawer-num">02</span><span>About Me</span></a></li>
+          <li class="drawer-item"><a href="#education" class="drawer-link" data-modal="education"><span
+                class="drawer-num">03</span><span>Education</span></a></li>
+          <li class="drawer-item"><a href="#skills" class="drawer-link" data-modal="skills"><span
+                class="drawer-num">04</span><span>Skills & Learning</span></a></li>
+          <li class="drawer-item"><a href="#projects" class="drawer-link" data-modal="projects"><span
+                class="drawer-num">05</span><span>Projects</span></a></li>
+          <li class="drawer-item"><a href="#contact" class="drawer-link" data-modal="contact"><span
+                class="drawer-num">06</span><span>Contact</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="drawer-footer">
+        <a href="#contact" class="drawer-cta-btn" data-modal="contact">
+          <span>Start a Project</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+
+        <div class="drawer-socials">
+          <a href="https://github.com/KrishnaBhadane" target="_blank" rel="noopener noreferrer"
+            class="drawer-social-icon" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/krishna-bhadane-015963386/" target="_blank" rel="noopener noreferrer"
+            class="drawer-social-icon" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.65 1.65 0 0 0 1.66-1.66 1.66 1.66 0 0 0-3.32 0 1.65 1.65 0 0 0 1.66 1.66m1.39 9.74v-8.37H5.07v8.37h2.78z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- Main Content Section -->
-    <main class="main-content">
+    <main class="main-content" id="mainHero">
       <!-- Left Column: Typography & Info -->
       <section class="left-pane">
         <div class="intro-tag">
@@ -85,7 +169,7 @@
 
         <div class="profession-row">
           <span class="profession-title">FULL STACK DEVELOPER</span>
-          <div class="profession-line-art">
+          <div class="profession-line-art" aria-hidden="true">
             <span class="prof-line"></span>
             <span class="prof-dot"></span>
           </div>
@@ -96,27 +180,26 @@
           impact.
         </p>
 
+        <!-- CTA Buttons -->
         <div class="cta-buttons-group">
-          <a href="#cv" class="btn-primary-action" id="btn-download-cv">
+          <a href="#cv" class="btn-secondary-action" id="btn-download-cv">
             <svg class="icon-download" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
               <polyline points="7 10 12 15 17 10"></polyline>
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
-            <span>Download CV</span>
+            <span id="cvBtnText">Download CV</span>
           </a>
 
-          <a href="#projects" class="btn-secondary-action" id="btn-view-work">
-            <span>View Work</span>
-            <svg class="icon-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+          <!-- Highlighted Projects Button (Styled like Connect button with live indicator) -->
+          <a href="#projects" class="btn-highlight-projects" id="btn-view-work" data-modal="projects">
+            <span>Projects</span>
+            <span class="online-indicator"></span>
           </a>
         </div>
 
+        <!-- Social Bar -->
         <div class="social-bar">
           <a href="https://github.com/KrishnaBhadane" target="_blank" rel="noopener noreferrer" class="social-icon-link"
             aria-label="GitHub">
@@ -126,13 +209,35 @@
             </svg>
           </a>
           <span class="social-sep"></span>
-          <a href="https://www.linkedin.com/in/krishna-bhadane-015963386/" target="_blank" rel="noopener noreferrer" class="social-icon-link"
-            aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/krishna-bhadane-015963386/" target="_blank" rel="noopener noreferrer"
+            class="social-icon-link" aria-label="LinkedIn">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.65 1.65 0 0 0 1.66-1.66 1.66 1.66 0 0 0-3.32 0 1.65 1.65 0 0 0 1.66 1.66m1.39 9.74v-8.37H5.07v8.37h2.78z" />
             </svg>
           </a>
+          <span class="social-sep"></span>
+          <button class="social-icon-link btn-copy-email" id="btnCopyEmail" aria-label="Copy Email Address"
+            title="Copy Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Quick Stats Bar -->
+        <div class="mobile-stats-card">
+          <div class="stat-pill">
+            <span class="stat-text">Full Stack</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-text">Clean Code</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-text">Modern UX</span>
+          </div>
         </div>
       </section>
 
@@ -141,8 +246,7 @@
         <div class="composition-container" id="compositionContainer">
 
           <!-- 3D Background Decorative Props -->
-          <!-- Top Right Dotted Card -->
-          <div class="prop-dotted-panel">
+          <div class="prop-dotted-panel" aria-hidden="true">
             <div class="dots-grid">
               <span></span><span></span><span></span><span></span><span></span><span></span>
               <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -153,17 +257,11 @@
             </div>
           </div>
 
-          <!-- Sage Green Circular Disk (Top-Right) -->
-          <div class="prop-circle-disk"></div>
+          <div class="prop-circle-disk" aria-hidden="true"></div>
+          <div class="prop-dark-sphere" aria-hidden="true"></div>
+          <div class="prop-back-glass" aria-hidden="true"></div>
 
-          <!-- Dark Glossy Marble Sphere (Top Center) -->
-          <div class="prop-dark-sphere"></div>
-
-          <!-- Frosted Glass Back Plate (Top Left) -->
-          <div class="prop-back-glass"></div>
-
-          <!-- Sage Green Pill Slider Plate (Mid Left) -->
-          <div class="prop-slider-plate">
+          <div class="prop-slider-plate" aria-hidden="true">
             <div class="notch-slider"></div>
             <div class="slider-wireframe">
               <span></span>
@@ -172,31 +270,28 @@
             </div>
           </div>
 
-          <!-- Concrete Pillar Block (Bottom Right) -->
-          <div class="prop-concrete-pillar"></div>
+          <div class="prop-concrete-pillar" aria-hidden="true"></div>
 
-          <!-- Sage Green Round Pedestal (Bottom Left) -->
-          <div class="prop-sage-pedestal">
+          <div class="prop-sage-pedestal" aria-hidden="true">
             <div class="pedestal-disc-top"></div>
             <div class="pedestal-disc-side"></div>
           </div>
 
-          <!-- Sage Green Cube with {...} -->
-          <div class="prop-cube-braces">
+          <div class="prop-cube-braces" aria-hidden="true">
             <span>{...}</span>
           </div>
 
-          <!-- Foreground Frosted Glass Plate (Bottom Right) -->
-          <div class="prop-front-glass"></div>
+          <div class="prop-front-glass" aria-hidden="true"></div>
 
           <!-- Centerpiece: Dark Code Editor Window -->
           <div class="code-window" id="codeWindow">
             <div class="window-top-bar">
               <div class="window-dots">
-                <span class="w-dot"></span>
-                <span class="w-dot"></span>
-                <span class="w-dot"></span>
+                <span class="w-dot red"></span>
+                <span class="w-dot yellow"></span>
+                <span class="w-dot green"></span>
               </div>
+              <div class="window-title-badge">developer.ts</div>
               <div class="window-code-symbol">&lt;/&gt;</div>
             </div>
 
@@ -217,32 +312,466 @@
               </div>
               <div class="code-line">
                 <span class="line-index">04</span>
-                <span class="code-text pad-1"><span class="c-prop">passion</span>: <span class="c-str">"Building
-                    impactful</span></span>
+                <span class="code-text pad-1"><span class="c-prop">skills</span>: [<span class="c-str">"React"</span>,
+                  <span class="c-str">"JavaScript"</span>, <span class="c-str">"Java"</span>, <span
+                    class="c-str">"DSA"</span>],</span>
               </div>
               <div class="code-line">
                 <span class="line-index">05</span>
-                <span class="code-text pad-2"><span class="c-str">digital experiences"</span>,</span>
+                <span class="code-text pad-1"><span class="c-prop">passion</span>: <span class="c-str">"Building &
+                    learning daily"</span>,</span>
               </div>
               <div class="code-line">
                 <span class="line-index">06</span>
-                <span class="code-text pad-1"><span class="c-prop">focus</span>: <span class="c-str">"Clean Code ·
-                    Better UX ·</span></span>
+                <span class="code-text pad-1"><span class="c-prop">status</span>: <span class="c-str c-accent">"Open to
+                    Collaborate"</span></span>
               </div>
               <div class="code-line">
                 <span class="line-index">07</span>
-                <span class="code-text pad-2"><span class="c-str">Real Impact"</span></span>
-              </div>
-              <div class="code-line">
-                <span class="line-index">08</span>
                 <span class="code-text">};</span>
               </div>
+            </div>
+
+            <!-- Code card bottom bar -->
+            <div class="code-window-footer">
+              <span class="tech-chip">Java</span>
+              <span class="tech-chip">DSA</span>
+              <span class="tech-chip">React</span>
+              <span class="tech-chip">JavaScript</span>
             </div>
           </div>
 
         </div>
       </section>
     </main>
+
+    <!-- Mobile Floating Navigation Dock -->
+    <nav class="mobile-dock" aria-label="Quick Actions Dock">
+      <a href="#home" class="dock-item active" data-modal="home" aria-label="Home">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span>Home</span>
+      </a>
+      <a href="#about" class="dock-item" data-modal="about" aria-label="About">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span>About</span>
+      </a>
+      <a href="#education" class="dock-item" data-modal="education" aria-label="Education">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+        </svg>
+        <span>Edu</span>
+      </a>
+      <a href="#skills" class="dock-item" data-modal="skills" aria-label="Skills">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        <span>Skills</span>
+      </a>
+      <a href="#projects" class="dock-item" data-modal="projects" aria-label="Projects">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        <span>Projects</span>
+      </a>
+      <a href="#contact" class="dock-item" data-modal="contact" aria-label="Contact">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span>Contact</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- =========================================================================
+       INTERACTIVE MODALS / SHEETS
+       ========================================================================= -->
+
+  <!-- Modal Backdrop -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true"></div>
+
+  <!-- 1. ABOUT MODAL (Clean, no emojis, interactive milestone cards) -->
+  <div class="modal-container" id="modalAbout" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-tag">PROFILE</span>
+          <h2 class="modal-title" id="aboutTitle">About Me</h2>
+        </div>
+        <button class="modal-close-btn" data-close-modal aria-label="Close dialog">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-lead">
+          I am Krushna Bhadane, an Information Technology engineering student passionate about software development,
+          solving algorithmic problems, and building modern, responsive web experiences.
+        </p>
+
+        <!-- Clean Interactive Milestone Grid without emojis -->
+        <div class="milestones-grid">
+          <div class="milestone-card">
+            <div class="milestone-indicator">
+              <span class="pulse-ring"></span>
+              <span class="dot-core"></span>
+            </div>
+            <div class="milestone-text">
+              <span class="milestone-tag">ACADEMICS</span>
+              <h3 class="milestone-heading">2nd Year B.Tech IT</h3>
+              <p class="milestone-sub">Learning at R. C. Patel Institute of Technology (RCPIT), Shirpur</p>
+            </div>
+          </div>
+
+          <div class="milestone-card">
+            <div class="milestone-indicator">
+              <span class="pulse-ring"></span>
+              <span class="dot-core"></span>
+            </div>
+            <div class="milestone-text">
+              <span class="milestone-tag">PROBLEM SOLVING</span>
+              <h3 class="milestone-heading">DSA Regular Solver</h3>
+              <p class="milestone-sub">Practicing Data Structures & Algorithms with Java consistently</p>
+            </div>
+          </div>
+
+          <div class="milestone-card">
+            <div class="milestone-indicator">
+              <span class="pulse-ring"></span>
+              <span class="dot-core"></span>
+            </div>
+            <div class="milestone-text">
+              <span class="milestone-tag">EXPERIENCE</span>
+              <h3 class="milestone-heading">1x Hackathon Participant</h3>
+              <p class="milestone-sub">Collaborated in team hackathons to architect functional digital prototypes</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer-cta">
+          <a href="#education" class="btn-secondary-action" data-modal="education">View Education</a>
+          <a href="#contact" class="btn-primary-action" data-modal="contact">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. EDUCATION MODAL (New Section) -->
+  <div class="modal-container" id="modalEducation" role="dialog" aria-modal="true" aria-labelledby="eduTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-tag">ACADEMIC JOURNEY</span>
+          <h2 class="modal-title" id="eduTitle">Education</h2>
+        </div>
+        <button class="modal-close-btn" data-close-modal aria-label="Close dialog">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="education-timeline">
+          <!-- B.Tech Card -->
+          <div class="edu-card featured-edu">
+            <div class="edu-top-row">
+              <span class="edu-degree">Bachelor of Technology (B.Tech)</span>
+              <span class="edu-badge status-ongoing">Present · 2nd Year</span>
+            </div>
+            <h3 class="edu-inst">R. C. Patel Institute of Technology, Shirpur</h3>
+            <p class="edu-branch">Department of Information Technology</p>
+
+            <div class="edu-gpa-grid">
+              <div class="gpa-box">
+                <span class="gpa-label">Semester 1</span>
+                <span class="gpa-val">7.85 <small>SGPA</small></span>
+              </div>
+              <div class="gpa-box">
+                <span class="gpa-label">Semester 2</span>
+                <span class="gpa-val">7.30 <small>SGPA</small></span>
+              </div>
+              <div class="gpa-box ongoing-gpa">
+                <span class="gpa-label">Semester 3</span>
+                <span class="gpa-val">Ongoing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- HSC Card -->
+          <div class="edu-card">
+            <div class="edu-top-row">
+              <span class="edu-degree">Higher Secondary Certificate (HSC)</span>
+              <span class="edu-badge">Completed</span>
+            </div>
+            <h3 class="edu-inst">Maharashtra State Board</h3>
+            <div class="edu-score-row">
+              <span class="score-tag">Final Score:</span>
+              <span class="score-num">73.50%</span>
+            </div>
+          </div>
+
+          <!-- SSC Card -->
+          <div class="edu-card">
+            <div class="edu-top-row">
+              <span class="edu-degree">Secondary School Certificate (SSC)</span>
+              <span class="edu-badge">Completed</span>
+            </div>
+            <h3 class="edu-inst">Maharashtra State Board</h3>
+            <div class="edu-score-row">
+              <span class="score-tag">Final Score:</span>
+              <span class="score-num score-high">90.20%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. SKILLS MODAL (Organized into learning pathways, DSA with Java box) -->
+  <div class="modal-container" id="modalSkills" role="dialog" aria-modal="true" aria-labelledby="skillsTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-tag">KNOWLEDGE & PROGRESSION</span>
+          <h2 class="modal-title" id="skillsTitle">Skills & Learning</h2>
+        </div>
+        <button class="modal-close-btn" data-close-modal aria-label="Close dialog">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-lead">
+          Continuously developing strong foundations in computer science, algorithmic problem solving, and modern web
+          application development.
+        </p>
+        <div class="skills-categories-grid">
+          <!-- Box 1: Core Web & Frontend -->
+          <div class="skill-group-box">
+            <div class="skill-group-header">
+              <h3 class="skill-cat-title"><span class="cat-dot"></span>Web & Frontend Development</h3>
+              <span class="level-indicator">Proficient</span>
+            </div>
+            <div class="skill-tags-list">
+              <span class="skill-badge">HTML5 (Semantic)</span>
+              <span class="skill-badge">CSS3 & Responsive Design</span>
+              <span class="skill-badge">JavaScript (ES6+)</span>
+              <span class="skill-badge">React.js</span>
+              <span class="skill-badge">Tailwind CSS</span>
+              <span class="skill-badge">Git & GitHub</span>
+              <span class="skill-badge">UI / UX Design Principles</span>
+            </div>
+          </div>
+
+          <!-- Box 2: Exploring & Fundamentals -->
+          <div class="skill-group-box">
+            <div class="skill-group-header">
+              <h3 class="skill-cat-title"><span class="cat-dot"></span>Backend & Fundamentals</h3>
+              <span class="level-indicator learning-pill">In Learning</span>
+            </div>
+            <div class="skill-tags-list">
+              <span class="skill-badge">Node.js (Basics)</span>
+              <span class="skill-badge">Express.js (Basics)</span>
+              <span class="skill-badge">REST APIs (Fundamentals)</span>
+              <span class="skill-badge">MongoDB (Learning)</span>
+              <span class="skill-badge">Database Concepts</span>
+              <span class="skill-badge">Software Engineering Basics</span>
+            </div>
+          </div>
+
+          <!-- Box 3: DSA with Java (At the bottom) -->
+          <div class="skill-group-box highlight-group">
+            <div class="skill-group-header">
+              <h3 class="skill-cat-title"><span class="cat-dot"></span>Data Structures & Algorithms (DSA)</h3>
+              <span class="level-indicator">Active Focus</span>
+            </div>
+            <div class="skill-tags-list">
+              <span class="skill-badge bold-badge">DSA with Java</span>
+              <span class="skill-badge">Core Java</span>
+              <span class="skill-badge">Object-Oriented Programming (OOP)</span>
+              <span class="skill-badge">Arrays & Strings</span>
+              <span class="skill-badge">Linked Lists & Stacks</span>
+              <span class="skill-badge">Recursion & Searching</span>
+              <span class="skill-badge">Problem Solving Practice</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. PROJECTS MODAL (Coming Soon with special effects) -->
+  <div class="modal-container" id="modalProjects" role="dialog" aria-modal="true" aria-labelledby="projectsTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-tag">SHOWCASE</span>
+          <h2 class="modal-title" id="projectsTitle">Projects</h2>
+        </div>
+        <button class="modal-close-btn" data-close-modal aria-label="Close dialog">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-lead">
+          Exciting projects are currently under active development. Stay tuned for live deployments and case studies.
+        </p>
+
+        <div class="projects-list-grid">
+          <!-- Coming Soon Project 1 -->
+          <div class="project-item-card coming-soon-card">
+            <div class="project-top-meta">
+              <div class="coming-soon-badge">
+                <span class="pulse-glow-dot"></span>
+                <span>Coming Soon</span>
+              </div>
+              <span class="proj-num">01</span>
+            </div>
+            <h3 class="proj-name">Full Stack Web Platform</h3>
+            <p class="proj-desc">An interactive web application currently in development featuring responsive
+              architecture, seamless UI components, and state management.</p>
+            <div class="proj-techs">
+              <span>React</span><span>JavaScript</span><span>REST APIs</span><span>CSS3</span>
+            </div>
+            <div class="proj-coming-status">
+              <span class="status-bar-fill"></span>
+              <span class="status-text">Development in Progress · Launching Soon</span>
+            </div>
+          </div>
+
+          <!-- Coming Soon Project 2 -->
+          <div class="project-item-card coming-soon-card">
+            <div class="project-top-meta">
+              <div class="coming-soon-badge">
+                <span class="pulse-glow-dot"></span>
+                <span>Coming Soon</span>
+              </div>
+              <span class="proj-num">02</span>
+            </div>
+            <h3 class="proj-name">DSA & Algorithm Visualizer</h3>
+            <p class="proj-desc">An educational problem-solving tool designed to visualize Java data structure
+              operations, sorting algorithms, and step-by-step logic.</p>
+            <div class="proj-techs">
+              <span>Java Concepts</span><span>DSA</span><span>JavaScript</span><span>UI Design</span>
+            </div>
+            <div class="proj-coming-status">
+              <span class="status-bar-fill fill-secondary"></span>
+              <span class="status-text">Architecture & Prototype Phase</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer-cta">
+          <a href="https://github.com/KrishnaBhadane" target="_blank" rel="noopener noreferrer"
+            class="btn-primary-action">
+            <span>Check My GitHub</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. CONTACT MODAL -->
+  <div class="modal-container" id="modalContact" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-tag">COLLABORATION</span>
+          <h2 class="modal-title" id="contactTitle">Let's Connect</h2>
+        </div>
+        <button class="modal-close-btn" data-close-modal aria-label="Close dialog">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-lead">
+          Have an exciting project, full-time role, or internship opportunity? Let’s talk and build something
+          exceptional.
+        </p>
+
+        <div class="contact-methods-list">
+          <a href="mailto:krishnabhadane0@gmail.com" class="contact-card-link">
+            <div class="contact-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Email Address</span>
+              <span class="contact-val">krishnabhadane0@gmail.com</span>
+            </div>
+            <span class="contact-action-tag">Send Mail &rarr;</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/krishna-bhadane-015963386/" target="_blank" rel="noopener noreferrer"
+            class="contact-card-link">
+            <div class="contact-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.65 1.65 0 0 0 1.66-1.66 1.66 1.66 0 0 0-3.32 0 1.65 1.65 0 0 0 1.66 1.66m1.39 9.74v-8.37H5.07v8.37h2.78z" />
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">LinkedIn Profile</span>
+              <span class="contact-val">linkedin.com/in/krishna-bhadane</span>
+            </div>
+            <span class="contact-action-tag">Connect &rarr;</span>
+          </a>
+
+          <a href="https://github.com/KrishnaBhadane" target="_blank" rel="noopener noreferrer"
+            class="contact-card-link">
+            <div class="contact-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">GitHub Repositories</span>
+              <span class="contact-val">github.com/KrishnaBhadane</span>
+            </div>
+            <span class="contact-action-tag">Follow &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Toast Notification for Copy/Actions -->
+  <div class="toast-notification" id="toastNotification" role="alert" aria-live="polite">
+    <span class="toast-icon">✓</span>
+    <span class="toast-message" id="toastMessage">Email copied to clipboard!</span>
   </div>
 
   <script src="script.js"></script>
